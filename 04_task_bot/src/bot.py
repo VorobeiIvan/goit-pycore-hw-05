@@ -1,21 +1,26 @@
-from src.commands import add_contact, change_contact, show_phone, show_all
+from src.commands import exit_bot, start_bot, add_contact, change_contact, show_phone, show_all
 from src.parser import parse_input
+from src.decorator.colorize_message import colorize_message
+from src.decorator.input_error import input_error
+from src.constants import messages_error, messages
 
 
+@colorize_message
+@input_error
 def bot():
     """Основний цикл бота."""
     contacts = {}
-    print("Welcome to the assistant bot!")
+    print(messages["start_bot"])
     
     while True:
-        user_input = input("Enter a command: ")
+        user_input = input(messages["user_input"])
         command, args = parse_input(user_input)
 
         if command in ["close", "exit"]:
-            print("Good bye!")
+            print(exit_bot())
             break
         elif command == "hello":
-            print("How can I help you?")
+            print(start_bot()) 
         elif command == "add":
             print(add_contact(args, contacts))
         elif command == "change":
@@ -25,4 +30,4 @@ def bot():
         elif command == "all":
             print(show_all(contacts))
         else:
-            print("Invalid command.")
+            print(messages_error["invalid"])

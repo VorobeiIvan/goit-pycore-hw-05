@@ -36,10 +36,6 @@
    ```bash
    python main.py
    ```
-4. Запуск тесту бота:
-   ```bash
-   python -m unittest test_bot.py
-   ```
 
 
 
