@@ -1,6 +1,5 @@
 def parse_input(user_input):
-    parts = user_input.strip().split()
-    if len(parts) == 0:
-        return None, []
-    cmd, *args = parts
-    return cmd.lower(), args
+    """Парсер для введеного рядка. Повертає команду та аргументи."""
+    cmd, *args = user_input.split()
+    cmd = cmd.strip().lower()
+    return cmd, args

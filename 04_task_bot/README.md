@@ -97,7 +97,7 @@ Contact updated.
 Enter a command: phone John
 Phone number for John: 0987654321
 
-Enter a command: exit
+Enter a command: exit  or close
 Good bye!
 ```
 
